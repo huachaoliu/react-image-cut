@@ -1,0 +1,54 @@
+.ts_upload {
+  min-height: 30px;
+  max-width: 100%;
+  background: #fff;
+  display: flex;
+
+  input {
+    width: 100%;
+    position: absolute;
+    z-index: 2;
+    left: 0;
+    opacity: 0;
+    height: 70%;
+  }
+
+  span {
+    width: 100%;
+    position: absolute;
+    z-index: 1;    
+    left: 0;
+    display: block;
+    text-align: center;
+  }
+
+  .child {
+    position: absolute;
+    z-index: 1;
+    height: 100%;
+    border-radius: 50%;
+    overflow: hidden;
+
+    >* {
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+.reduce {
+  position: absolute;
+  right: 0;
+  top: 0;
+  color: #f00;
+  background: #fff;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  line-height: 20px;
+  i {
+    font-size: 19px;
+  }
+}

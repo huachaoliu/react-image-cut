@@ -1,0 +1,42 @@
+{
+  "name": "react-image-cut",
+  "version": "1.0.0",
+  "description": "image cut",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "PORT=3000 cross-env BROWSER=none umi dev",
+    "clean": "rimraf ./lib && mkdir lib",
+    "lib": "npm run clean && babel ./src/components/cropper --out-dir lib"
+  },
+  "files": [
+    "lib"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/huachaoliu/react-image-cut.git"
+  },
+  "keywords": [
+    "image"
+  ],
+  "author": "huahcaoliu",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/huachaoliu/react-image-cut/issues"
+  },
+  "homepage": "https://github.com/huachaoliu/react-image-cut#readme",
+  "dependencies": {
+    "cross-env": "^5.2.0",
+    "html2canvas": "^1.0.0-alpha.12",
+    "umi": "^1.3.18"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-plugin-transform-class-properties": "^6.24.1",
+    "babel-plugin-transform-object-rest-spread": "^6.26.0",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-react": "^6.24.1",
+    "rimraf": "^2.6.2"
+  }
+}
