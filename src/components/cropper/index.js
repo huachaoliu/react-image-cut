@@ -16,13 +16,15 @@ const currentState = {
 };
 export default class Screenshot extends React.PureComponent {
   static defaultProps = {
+    boxWidth: 200,
+    boxHeight: 200,
     getCutfile: () => null,
   };
   constructor(props) {
     super(props);
     this.state = {
-      box_width: props.boxWidth || 200,
-      box_height: props.boxHeight || 200,
+      box_width: props.boxWidth,
+      box_height: props.boxHeight,
       ...currentState,
     };
   }
@@ -50,8 +52,8 @@ export default class Screenshot extends React.PureComponent {
   _resetState = () => {
     const { boxWidth, boxHeight } = this.props;
     this.setState({
-      box_width: boxWidth || 200,
-      box_height: boxHeight || 200,
+      box_width: boxWidth,
+      box_height: boxHeight,
       ...currentState,
     }, () => {
       this.sourceImageUpdate();
@@ -128,6 +130,7 @@ export default class Screenshot extends React.PureComponent {
 
   _onCropper = () => {
     const { file, getCutfile } = this.props;
+    console.log(this.box);
     html2canvas(this.box, {
       allowTaint: true,
     }).then((entity) => {
