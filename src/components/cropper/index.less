@@ -23,8 +23,6 @@
   justify-content: center;
   border: 1px solid #d9d9d9;
   background: url(../../assets/block.png);
-  border-bottom: none;
-
   img {
     align-self: center;
   }
@@ -92,6 +90,12 @@
   top: 33.333%;
 }
 
+.cropper_cut_point {
+  width: 1px;
+  height: 1px;
+  background: #109df1;
+}
+
 .cropper_move {
   width: 100%;
   height: 100%;
@@ -155,6 +159,9 @@
     left: -3px;
     top: calc(50% - 1px);
     cursor: col-resize;        
+    left: auto;
+    bottom: auto;
+    cursor: nesw-resize;
   }
 }
 

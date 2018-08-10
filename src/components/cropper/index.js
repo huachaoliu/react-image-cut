@@ -32,11 +32,10 @@ export default class Cropper extends React.PureComponent {
   }
   constructor(props) {
     super(props);
-    const { boxWidth, boxHeight } = props;
     this.state = {
-      boxWidth,
-      boxHeight,
-      ...currentState
+      box_width: props.boxWidth,
+      box_height: props.boxHeight,
+      ...currentState,
     };
   }
 
@@ -317,6 +316,7 @@ export default class Cropper extends React.PureComponent {
 
     return <div className={cropperClass} id="cropper">
       <div className={css.cropper_pixel}>
+
         <div className={css.cropper_source_image}>
           <img
             style={{ width, height }}
