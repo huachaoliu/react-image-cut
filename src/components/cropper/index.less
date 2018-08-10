@@ -22,6 +22,8 @@
   display: flex;
   justify-content: center;
   border: 1px solid #d9d9d9;
+  background: url(../../assets/block.png);
+  border-bottom: none;
 
   img {
     align-self: center;
@@ -38,7 +40,9 @@
   height: ~"calc(100% - 50px)";
   position: relative;
   background: url(../../assets/block.png);
-  border: 1px solid #d9d9d9;  
+  border: 1px solid #d9d9d9;
+  overflow: hidden;
+  border-bottom: none;
 }
 
 .cropper_source_image {
@@ -63,15 +67,29 @@
   top: 5px;
   width: 200px;
   height: 200px;
-  background: transparent;
+  background: rgba(255, 255, 255, .15);
   border: 1px solid #109df1;
   z-index: 3;
 }
 
-.cropper_cut_point {
-  width: 1px;
-  height: 1px;
-  background: #109df1;
+.col {
+  width: 33.333%;
+  height: 100%;
+  background: transparent;
+  border-right: 1px dashed rgba(252,252,252,.5);
+  border-left: 1px dashed rgba(252,252,252,.5);
+  position: absolute;
+  left: 33.333%;
+}
+
+.row {
+  width: 100%;
+  height: 33.333%;
+  background: transparent;
+  border-top: 1px dashed rgba(252,252,252,.5);
+  border-bottom: 1px dashed rgba(252,252,252,.5);
+  position: absolute;
+  top: 33.333%;
 }
 
 .cropper_move {
@@ -80,38 +98,63 @@
   cursor: move;
   position: absolute;
   z-index: 5;
-  background: #fff;
-  opacity: .1;  
+  background: transparent;
+  // opacity: .1;  
 }
 
 .cropper_cut_point {
+  width: 1px;
+  height: 1px;
+  background: #109df1;
   border: 2px solid #109df1;
   position: absolute;
-  left: -3px;
-  top: -3px;
-  cursor: nwse-resize;
+  z-index: 99;
+
+  &:nth-child(1) {
+    top: -3px;
+    left: -3px;
+    cursor: nwse-resize;    
+  }
+
+  &:nth-child(2) {
+    top: -3px;
+    right: ~"calc(50% - 1px)";
+    cursor: row-resize;
+  }
 
   &:nth-child(3) {
     top: -3px;
     right: -3px;
-    left: auto;
-    bottom: auto;
-    cursor: nesw-resize;
+    cursor: nesw-resize;    
+  }
+  &:nth-child(4) {
+    top: ~"calc(50% - 1px)";
+    right: -3px;
+    cursor: col-resize;    
   }
 
-  &:nth-child(4) {
-    left: auto;
-    bottom: -3px;
-    right: -3px;
-    top: auto;
-    cursor: nwse-resize;
-  }
   &:nth-child(5) {
+    right: -3px;
     bottom: -3px;
-    top: auto;
-    right: auto;
+    cursor: nwse-resize;        
+  }
+
+  &:nth-child(6) {
+    bottom: -3px;
+    right: ~"calc(50% - 1px)";
+    cursor: row-resize;        
+  }
+
+  &:nth-child(7) {
+    bottom: -3px;
     left: -3px;
-    cursor: nesw-resize;    
+    cursor: nesw-resize;        
+  }
+
+  &:nth-child(8) {
+    left: -3px;
+    top: calc(50% - 1px);
+    cursor: col-resize;        
   }
 }
 
@@ -130,7 +173,7 @@
 .cropper_btns {
   width: 100%;
   height: 30px;
-  background: #fff;
+  background: #333;
   padding: 10px 0;
   display: flex;
   justify-content: center;
@@ -146,4 +189,13 @@
     margin-right: 5px;
     border-radius: 2px;
   }
+}
+
+
+// 移动端
+
+.is_mobile {
+  width: 90vw;
+  height: 80vw;
+  margin: -40vw -45vw;
 }

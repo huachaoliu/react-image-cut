@@ -20,7 +20,7 @@ export default class Wrapper extends React.PureComponent {
     const { screenshot, file } = this.state;
 
     return <div className={css.wrapper}>
-      <Screenshot file={file} boxWidth={300} boxHeight={200} />
+      <Screenshot file={file} /*boxWidth={300} boxHeight={200}*/ />
       <Upload
         hasUrl
         radius
