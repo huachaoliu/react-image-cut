@@ -32,9 +32,10 @@ export default class Cropper extends React.PureComponent {
   }
   constructor(props) {
     super(props);
+    const { boxWidth, boxHeight } = props;
     this.state = {
-      box_width: props.boxWidth,
-      box_height: props.boxHeight,
+      boxWidth,
+      boxHeight,
       ...currentState,
     };
   }
@@ -226,6 +227,7 @@ export default class Cropper extends React.PureComponent {
 
     let bleft = boxLeft;
     let btop = boxTop;
+    console.log(boxWidth, boxScaleX);
     if (dataKey === 'rb') {
       bleft = boxLeft;
     } else if (dataKey === 'tr') {
@@ -234,7 +236,6 @@ export default class Cropper extends React.PureComponent {
       btop = boxTop + boxScaleY;
     }
     // const bleft = dataKey === 'rt' ? boxLeft - boxScaleX : boxLeft;
-
     return <div className={css.cropper_cut_box}
       style={{
         width: boxWidth + boxScaleX,
