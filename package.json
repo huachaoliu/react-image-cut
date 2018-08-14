@@ -2,7 +2,7 @@
   "name": "react-image-cut",
   "version": "1.0.0",
   "description": "image cut",
-  "main": "index.js",
+  "main": "./lib/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "PORT=3000 cross-env BROWSER=none umi dev",
